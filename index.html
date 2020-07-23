@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <title>Shopping Cart</title>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" rel="stylesheet" />
+   <link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+
+   <section>
+      <div class="container">
+         <div class="cart">
+            <div class="col-md-12 col-lg-10 mx-auto">
+               <div class="cart-item">
+                  <div id="phone" class="row">
+                     <div class="col-md-7 center-item">
+                        <img src="images/product-1.png" alt="">
+                        <h5>iPhone 11 128GB Black</h5>
+                     </div>
+
+                     <div class="col-md-5 center-item">
+                        <div class="input-group number-spinner">
+                           <button id="decrease-button1" class="btn btn-default"><i class="fas fa-minus"></i></button>
+                           <input type="text" id="inputItem1" class="form-control text-center" value="1">
+                           <button id="increase-button1" class="btn btn-default"><i class="fas fa-plus"></i></button>
+                        </div>
+                        <h5>$ <span id="price-item1">1219</span></h5>
+                        <img src="images/remove.png" alt="" id="cancel-button1" class="remove-item">
+                     </div>
+                  </div>
+               </div>
+
+               <div class="cart-item">
+                  <div id="phoneCover" class="row">
+                     <div class="col-md-7 center-item mx-auto">
+                        <img src="images/product-2.png" alt="">
+                        <h5>iPhone 11 Silicone Case - Black</h5>
+                     </div>
+                     <div class="col-md-5 center-item">
+                        <div class="input-group number-spinner">
+                           <button id="decrease-button2" class="btn btn-default"><i class="fas fa-minus"></i></button>
+                           <input id="inputItem2" type="text" class="form-control text-center" value="1">
+                           <button id="increase-button2" class="btn btn-default"><i class="fas fa-plus"></i></button>
+
+                        </div>
+                        <h5>$<span id="price-item2">59</span></h5>
+                        <img  src="images/remove.png" alt=""  id="cancel-button2" class="remove-item">
+                     </div>
+                  </div>
+               </div>
+
+               <div class="cart-item">
+                  <div class="row">
+
+                     <div class="col-md-8">
+                        <h5>Subtotal: </h5>
+                        <h5>Tax:</h5>
+                        <h5>Total:</h5>
+                     </div>
+
+                     <div class="col-md-4 status">
+                        <h5>$<span id="subTotal">1,278</span></h5>
+                        <h5>$0</h5>
+                        <h5>$<span id="totalAmount"> 1,278</span></h5>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-md-12 pt-4 pb-4">
+                  <button type="button" class="btn btn-success check-out">Check Out</button>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+
+   <script>
+      // const increaseBtn = document.getElementById("increase-button");
+      // increaseBtn.addEventListener("click", function(){
+      //    const priceItem = document.getElementById("price-item").value;
+      //    const priceItem = parseInt(priceItem* 2);
+   // })
+    
+          //increase and decreaser function
+      function increaser(price , inputId, priceId){
+         var increaseValue = parseInt(inputId.value);
+         increaseValue++;
+         inputId.value = increaseValue;
+         priceId.innerText = price * parseInt(inputId.value);
+          subTotal.innerText = parseInt(priceItem1.innerText) + parseInt(priceItem2.innerText);
+          totalAmount.innerText = parseInt(priceItem1.innerText) + parseInt(priceItem2.innerText)
+      }
+      function decreaser(price , inputId, priceId){
+         var increaseValue = parseInt(inputId.value);
+         increaseValue--;
+         inputId.value = increaseValue;
+         priceId.innerText = price * parseInt(inputId.value);
+         subTotal.innerText = parseInt(priceItem1.innerText) + parseInt(priceItem2.innerText);
+          totalAmount.innerText = parseInt(priceItem1.innerText) + parseInt(priceItem2.innerText)
+      }
+
+         //phone details
+         var decreaseBtn1 = document.getElementById("decrease-button1");
+      var inputItem1 = document.getElementById("inputItem1");
+      var increaseBtn1 = document.getElementById("increase-button1");
+      var priceItem1 = document.getElementById("price-item1");
+
+      increaseBtn1.addEventListener("click", function(){
+         increaser (1200, inputItem1, priceItem1);
+         
+      })
+      decreaseBtn1.addEventListener("click", function(){
+         decreaser (1200, inputItem1, priceItem1);
+      })
+      
+      // phn cover details
+      var decreaseBtn2 = document.getElementById("decrease-button2");
+      var inputItem2 = document.getElementById("inputItem2");
+      var increaseBtn2 = document.getElementById("increase-button2");
+      var priceItem2 =  document.getElementById("price-item2");
+          
+          increaseBtn2.addEventListener("click", function(){
+             increaser (59, inputItem2, priceItem2);
+          })
+          decreaseBtn2.addEventListener("click", function(){
+             decreaser (59, inputItem2, priceItem2);
+          })
+          
+          //TOTAL AMOUNT
+
+          var subTotal = document.getElementById("subTotal");
+          var totalAmount = document.getElementById("totalAmount");
+
+          // cancel button
+          var cancelBtn1 = document.getElementById("cancel-button1");
+          cancelBtn1.addEventListener("click", function(){
+             phone.style.display ="none";
+          })
+          var cancelBtn2 = document.getElementById("cancel-button2");
+          cancelBtn2.addEventListener("click", function(){
+             phoneCover.style.display = "none";
+          })
+   </script>
+</body>
+
+</html>
